@@ -23,19 +23,32 @@
 }
 
 .header_searchInput {
-  height: 12px;
+  /* height: 12px; */
   padding: 10px;
   border: none;
   width: 100%;
 }
 .header_searchIcon {
   padding: 5px;
-  height: 22px !important;
+  height: 100% !important;
   background-color: #cd9042;
+  align-items: center;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .header_optionLineOne {
   font-size: 10px;
+}
+
+.header_optionBasket {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+.header_cartCount {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .header_optionLineTwo {
