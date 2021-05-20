@@ -3,8 +3,25 @@ import "./Product.css";
 import {Button} from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {useStateValue} from "./Providers/StateProvider";
 
-function Product({title, price, image, rating}) {
+function Product({id, title, price, image, rating}) {
+  const [{basket}, dispatch] = useStateValue();
+
+  // console.log("this is the basket >>>", basket);
+
+  const addToCart = () => {
+    dispatch({
+      type: "ADD_TO_CART",
+      item: {
+        id: id,
+        title: title,
+        image: image,
+        price: price,
+      },
+    });
+  };
+
   return (
     <div className="product">
       <Col>
@@ -21,7 +38,7 @@ function Product({title, price, image, rating}) {
       </Col>
 
       <img src={image} alt="" />
-      <Button>Add to Cart</Button>
+      <Button onClick={addToCart}>Add to Cart</Button>
     </div>
   );
 }

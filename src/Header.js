@@ -5,15 +5,21 @@ import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import "bootstrap/dist/css/bootstrap.min.css";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
+import {Link} from "react-router-dom";
+import {useStateValue} from "./Providers/StateProvider";
 
 function Header() {
+  const [{basket}] = useStateValue();
+
   return (
     <div className="header">
-      <img
-        className="header_logo"
-        src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
-        alt=""
-      />
+      <Link to="/">
+        <img
+          className="header_logo"
+          src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
+          alt=""
+        />
+      </Link>
 
       <div className="header_search">
         {/* <input className="header_searchInput" type="text" />
@@ -48,10 +54,15 @@ function Header() {
           <span className="header_optionLineOne">Your</span>
           <span className="header_optionLineTwo">prime</span>
         </div>
-        <div className="header_optionBasket">
-          <ShoppingBasketIcon />
-          <span className="header_optionLineTwo header_cartCount">0</span>
-        </div>
+
+        <Link to="/checkout">
+          <div className="header_optionBasket">
+            <ShoppingBasketIcon />
+            <span className="header_optionLineTwo header_cartCount">
+              {basket?.length}
+            </span>
+          </div>
+        </Link>
       </div>
     </div>
   );
