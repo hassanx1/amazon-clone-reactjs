@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./Subtotal.css";
 // import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -33,12 +34,12 @@ function Subtotal() {
           thousandSeperator={true}
           prefix={"UGX "}
         />
+        <Row>
+          <Button variant="warning" size="sm" block>
+            Proceed to checkout
+          </Button>
+        </Row>
       </div>
-      <Row>
-        <Button variant="warning" size="sm" block>
-          Proceed to checkout
-        </Button>
-      </Row>
     </Col>
   );
 }
